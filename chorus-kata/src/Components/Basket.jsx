@@ -5,9 +5,9 @@ import Counter from "./Counter";
 class Basket extends Component {
 	render() {
 		return (
-			<React.Fragment>
+			<div className="basket">
 				<Counter />
-			</React.Fragment>
+			</div>
 		);
 	}
 }
