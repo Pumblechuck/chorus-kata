@@ -31,7 +31,14 @@ class Counter extends Component {
 						>
 							-
 						</button>
-						<button className="btn btn-danger btn-sm m-1">Remove</button>
+						<button
+							className="btn btn-danger btn-sm m-1"
+							onClick={() =>
+								this.props.onDelete(this.props.item.id, this.props.item.total)
+							}
+						>
+							Remove
+						</button>
 					</div>
 				</div>
 			</React.Fragment>

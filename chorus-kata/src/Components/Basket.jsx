@@ -4,7 +4,7 @@ import Counter from "./Counter";
 
 class Basket extends Component {
 	render() {
-		const { onIncrement, onDecrement, onReset } = this.props;
+		const { onDelete, onIncrement, onDecrement, onReset } = this.props;
 		let totalCost = this.props.total.toFixed(2);
 		return (
 			<div className="card basket">
@@ -18,6 +18,7 @@ class Basket extends Component {
 								<Counter
 									key={item.id}
 									item={item}
+									onDelete={onDelete}
 									onIncrement={onIncrement}
 									onDecrement={onDecrement}
 								>

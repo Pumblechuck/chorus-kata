@@ -37,6 +37,17 @@ class Body extends Component {
 		total: 0,
 	};
 
+	handleDelete = (counterID, totalDeduction) => {
+		const items = this.state.items.filter((c) => c.id !== counterID);
+		this.setState({ items });
+
+		this.setState((previousState) => {
+			return {
+				total: previousState.total - totalDeduction,
+			};
+		});
+	};
+
 	handleReset = () => {
 		const items = this.state.items.map((c) => {
 			c.value = 0;
@@ -93,6 +104,7 @@ class Body extends Component {
 					onReset={this.handleReset}
 					onIncrement={this.handleIncrement}
 					onDecrement={this.handleDecrement}
+					onDelete={this.handleDelete}
 				/>
 				<div className="text-center m-3">
 					<span className="badge badge-secondary badge-pill p-2">
