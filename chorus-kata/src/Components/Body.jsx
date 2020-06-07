@@ -35,10 +35,64 @@ class Body extends Component {
 			},
 		],
 	};
+
+	handleReset = () => {
+		const items = this.state.items.map((c) => {
+			c.value = 0;
+			c.total = 0;
+			return c;
+		});
+		this.setState({ items });
+
+		this.setState((previousState) => {
+			return {
+				total: 0,
+			};
+		});
+	};
+
+	handleDecrement = (item) => {
+		const items = [...this.state.items];
+		const index = items.indexOf(item);
+		items[index] = { ...item };
+		if (items[index].value > 0) {
+			items[index].value--;
+			items[index].total = items[index].value * items[index].price;
+			this.setState({ items });
+
+			this.setState((previousState) => {
+				return {
+					total: previousState.total - items[index].price,
+				};
+			});
+		}
+	};
+
+	handleIncrement = (item) => {
+		const items = [...this.state.items];
+		const index = items.indexOf(item);
+		items[index] = { ...item };
+		items[index].value++;
+		items[index].total = items[index].value * items[index].price;
+		this.setState({ items });
+
+		this.setState((previousState) => {
+			return {
+				total: previousState.total + items[index].price,
+			};
+		});
+	};
+
 	render() {
 		return (
 			<div className="col-4 offset-4">
-				<Basket items={this.state.items} />
+				<Basket
+					items={this.state.items}
+					onReset={this.handleReset}
+					onIncrement={this.handleIncrement}
+					onDecrement={this.handleDecrement}
+					onDelete={this.handleDelete}
+				/>
 				<div className="text-center m-3">
 					<span className="badge badge-secondary badge-pill p-2">
 						Items in basket:

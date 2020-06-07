@@ -17,10 +17,16 @@ class Counter extends Component {
 						</p>
 					</div>
 					<div className="col-4">
-						<button className="btn btn-secondary btn-sm m-1 basketButton">
+						<button
+							className="btn btn-secondary btn-sm m-1 basketButton"
+							onClick={() => this.props.onIncrement(this.props.item)}
+						>
 							+
 						</button>
-						<button className="btn btn-secondary btn-sm m-1 basketButton">
+						<button
+							className="btn btn-secondary btn-sm m-1 basketButton"
+							onClick={() => this.props.onDecrement(this.props.item)}
+						>
 							-
 						</button>
 						<button className="btn btn-danger btn-sm m-1">Remove</button>
