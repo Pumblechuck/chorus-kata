@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class Counter extends Component {
 	render() {
+		let overallCost = this.props.item.total.toFixed(2);
+		let unitCost = this.props.item.price.toFixed(2);
 		return (
 			<React.Fragment>
 				<div className="row row-fluid">
@@ -10,10 +12,10 @@ class Counter extends Component {
 					</div>
 					<div className="col-4">
 						<p>
-							£{this.props.item.price} x {this.props.item.value}
+							£{unitCost} x {this.props.item.value}
 						</p>
 						<p>
-							<b>£{this.props.item.total}</b>
+							<b>£{overallCost}</b>
 						</p>
 					</div>
 					<div className="col-4">
