@@ -5,6 +5,7 @@ import Counter from "./Counter";
 class Basket extends Component {
 	render() {
 		const { onIncrement, onDecrement, onReset } = this.props;
+		let totalCost = this.props.total.toFixed(2);
 		return (
 			<div className="card basket">
 				<div className="card-header">
@@ -24,7 +25,12 @@ class Basket extends Component {
 								</Counter>
 							))}
 							<div className="row row-fluid">
-								<div className="col-12">
+								<div className="col-9 line-height-2">
+									<span>
+										<b>Total: </b>£{totalCost}
+									</span>
+								</div>
+								<div className="col-3">
 									<button
 										className="btn btn-warning btn-sm m-1"
 										onClick={onReset}

@@ -34,6 +34,7 @@ class Body extends Component {
 				total: 0,
 			},
 		],
+		total: 0,
 	};
 
 	handleReset = () => {
@@ -88,6 +89,7 @@ class Body extends Component {
 			<div className="col-4 offset-4">
 				<Basket
 					items={this.state.items}
+					total={this.state.total}
 					onReset={this.handleReset}
 					onIncrement={this.handleIncrement}
 					onDecrement={this.handleDecrement}
