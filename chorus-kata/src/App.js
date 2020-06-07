@@ -2,12 +2,12 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-import Basket from "./Components/Basket";
+import Body from "./Components/Body";
 
 function App() {
 	return (
 		<div className="App">
-			<Basket />
+			<Body />
 		</div>
 	);
 }

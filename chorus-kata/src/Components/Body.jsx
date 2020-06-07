@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-import Counter from "./Counter";
+import Basket from "./Basket";
 
-class Basket extends Component {
+class Body extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Counter />
+				<Basket />
 			</React.Fragment>
 		);
 	}
 }
 
-export default Basket;
+export default Body;
