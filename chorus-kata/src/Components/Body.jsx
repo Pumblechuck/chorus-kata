@@ -11,6 +11,9 @@ class Body extends Component {
 				value: 0,
 				price: 0.5,
 				total: 0,
+				discount: true,
+				discountValue: 0.2,
+				discountThreshold: 3,
 			},
 			{
 				id: 2,
@@ -18,6 +21,9 @@ class Body extends Component {
 				value: 0,
 				price: 0.3,
 				total: 0,
+				discount: true,
+				discountValue: 0.15,
+				discountThreshold: 2,
 			},
 			{
 				id: 3,
@@ -25,6 +31,7 @@ class Body extends Component {
 				value: 0,
 				price: 0.2,
 				total: 0,
+				discount: false,
 			},
 			{
 				id: 4,
@@ -32,6 +39,7 @@ class Body extends Component {
 				value: 0,
 				price: 0.15,
 				total: 0,
+				discount: false,
 			},
 		],
 		total: 0,
@@ -69,7 +77,19 @@ class Body extends Component {
 		items[index] = { ...item };
 		if (items[index].value > 0) {
 			items[index].value--;
-			items[index].total = items[index].value * items[index].price;
+			if (
+				items[index].discount === true &&
+				items[index].value / items[index].discountThreshold >= 1
+			) {
+				var discountTimes = Math.floor(
+					items[index].value / items[index].discountThreshold
+				);
+				items[index].total =
+					items[index].value * items[index].price -
+					discountTimes * items[index].discountValue;
+			} else {
+				items[index].total = items[index].value * items[index].price;
+			}
 			this.setState({ items });
 
 			this.setState((previousState) => {
@@ -85,7 +105,19 @@ class Body extends Component {
 		const index = items.indexOf(item);
 		items[index] = { ...item };
 		items[index].value++;
-		items[index].total = items[index].value * items[index].price;
+		if (
+			items[index].discount === true &&
+			items[index].value / items[index].discountThreshold >= 1
+		) {
+			var discountTimes = Math.floor(
+				items[index].value / items[index].discountThreshold
+			);
+			items[index].total =
+				items[index].value * items[index].price -
+				discountTimes * items[index].discountValue;
+		} else {
+			items[index].total = items[index].value * items[index].price;
+		}
 		this.setState({ items });
 
 		this.setState((previousState) => {
