@@ -75,6 +75,7 @@ class Body extends Component {
 		const items = [...this.state.items];
 		const index = items.indexOf(item);
 		items[index] = { ...item };
+		const previousTotalCost = items[index].total;
 		if (items[index].value > 0) {
 			items[index].value--;
 			if (
@@ -94,7 +95,7 @@ class Body extends Component {
 
 			this.setState((previousState) => {
 				return {
-					total: previousState.total - items[index].price,
+					total: previousState.total - previousTotalCost + items[index].total,
 				};
 			});
 		}
@@ -104,6 +105,7 @@ class Body extends Component {
 		const items = [...this.state.items];
 		const index = items.indexOf(item);
 		items[index] = { ...item };
+		const previousTotalCost = items[index].total;
 		items[index].value++;
 		if (
 			items[index].discount === true &&
@@ -122,7 +124,7 @@ class Body extends Component {
 
 		this.setState((previousState) => {
 			return {
-				total: previousState.total + items[index].price,
+				total: previousState.total - previousTotalCost + items[index].total,
 			};
 		});
 	};
