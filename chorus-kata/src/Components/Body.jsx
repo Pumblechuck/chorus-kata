@@ -129,13 +129,21 @@ class Body extends Component {
 		});
 	};
 
+	toggleBasket = () => {
+		if (this.state.showBasket === false) {
+			var appendBasketClass = "";
+		} else if (this.state.showBasket === true) {
+			var appendBasketClass = "d-none";
+		}
+	};
+
 	render() {
 		return (
 			<React.Fragment>
 				<div className="row row-fluid">
 					<div className="col-6 shop">Shop</div>
 					<div className="col-3">
-						<div id="BasketContainer">
+						<div id="BasketContainer" className="d-none">
 							<Basket
 								items={this.state.items}
 								total={this.state.total}

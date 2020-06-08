@@ -12,6 +12,17 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+header {
+	border-bottom: solid 2px #077bff;
+	margin-bottom: 30px;
+	width: 102%;
+	margin-left: -1%;
+}
+
+header h1 {
+	margin-left: 8.77777777%;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
@@ -20,6 +31,7 @@ code {
 .shop {
 	margin-left: 25%;
 	border: solid 2px #007bff;
+	min-height: 75vh;
 }
 
 #Basket {
@@ -27,6 +39,18 @@ code {
 	border: solid 2px #007bff;
 	margin: 0 15px;
 	text-align: center;
+}
+
+#toggleBasket {
+	color: #000bff;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+#toggleBasket:hover {
+	color: #007bff;
 }
 
 .basketButton {
