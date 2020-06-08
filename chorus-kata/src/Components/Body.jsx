@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Basket from "./Basket";
+import Item from "./Item";
 
 class Body extends Component {
 	state = {
@@ -141,7 +142,15 @@ class Body extends Component {
 		return (
 			<React.Fragment>
 				<div className="row row-fluid">
-					<div className="col-6 shop">Shop</div>
+					<div className="col-6 shop">
+						<div className="row row-fluid">
+							{this.state.items.map((item) => (
+								<div className="col-6">
+									<Item item={item} />
+								</div>
+							))}
+						</div>
+					</div>
 					<div className="col-3">
 						<div id="BasketContainer" className="d-none">
 							<Basket

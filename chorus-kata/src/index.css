@@ -1,5 +1,4 @@
 .App {
-	max-width: 98vw;
 	margin: 0 auto;
 }
 
@@ -15,7 +14,6 @@ body {
 header {
 	border-bottom: solid 2px #077bff;
 	margin-bottom: 30px;
-	width: 102%;
 	margin-left: -1%;
 }
 

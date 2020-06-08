@@ -21,9 +21,7 @@ class Basket extends Component {
 									onDelete={onDelete}
 									onIncrement={onIncrement}
 									onDecrement={onDecrement}
-								>
-									<span className="itemID"> // #{item.id}</span>
-								</Counter>
+								/>
 							))}
 							<div className="row row-fluid">
 								<div className="col-9 line-height-2">
