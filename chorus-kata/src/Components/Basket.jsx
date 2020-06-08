@@ -7,7 +7,7 @@ class Basket extends Component {
 		const { onDelete, onIncrement, onDecrement, onReset } = this.props;
 		let totalCost = this.props.total.toFixed(2);
 		return (
-			<div className="card basket">
+			<div id="Basket" className="card">
 				<div className="card-header">
 					<h3 className="card=title">Basket</h3>
 				</div>

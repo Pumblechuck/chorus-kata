@@ -131,22 +131,29 @@ class Body extends Component {
 
 	render() {
 		return (
-			<div className="col-4 offset-4">
-				<Basket
-					items={this.state.items}
-					total={this.state.total}
-					onReset={this.handleReset}
-					onIncrement={this.handleIncrement}
-					onDecrement={this.handleDecrement}
-					onDelete={this.handleDelete}
-				/>
-				<div className="text-center m-3">
-					<span className="badge badge-secondary badge-pill p-2">
-						Items in basket:
-						<b> {this.state.items.filter((c) => c.value > 0).length}</b>
-					</span>
+			<React.Fragment>
+				<div className="row row-fluid">
+					<div className="col-6 shop">Shop</div>
+					<div className="col-3">
+						<div id="BasketContainer">
+							<Basket
+								items={this.state.items}
+								total={this.state.total}
+								onReset={this.handleReset}
+								onIncrement={this.handleIncrement}
+								onDecrement={this.handleDecrement}
+								onDelete={this.handleDelete}
+							/>
+							<div className="text-center m-3">
+								<span className="badge badge-secondary badge-pill p-2">
+									Items in basket:
+									<b> {this.state.items.filter((c) => c.value > 0).length}</b>
+								</span>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</React.Fragment>
 		);
 	}
 }
