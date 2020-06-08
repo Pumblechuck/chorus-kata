@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Header from "./Header";
 import Basket from "./Basket";
 import Item from "./Item";
 import EmptyBasket from "./EmptyBasket";
@@ -144,8 +145,10 @@ class Body extends Component {
 	};
 
 	render() {
+		var itemsInBasket = this.state.items.filter((c) => c.value > 0).length;
 		return (
 			<React.Fragment>
+				<Header itemsInBasket={itemsInBasket} />
 				<div className="row row-fluid">
 					<div className="col-6 shop">
 						<div className="row row-fluid">
@@ -169,7 +172,7 @@ class Body extends Component {
 							<div className="text-center m-3">
 								<span className="badge badge-secondary badge-pill p-2">
 									Items in basket:
-									<b> {this.state.items.filter((c) => c.value > 0).length}</b>
+									<b> {itemsInBasket}</b>
 								</span>
 							</div>
 						</div>

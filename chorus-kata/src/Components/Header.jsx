@@ -14,6 +14,9 @@ class Header extends Component {
 						<h1>Chorus Kata Shop</h1>
 					</div>
 					<div className="col-1">
+						<span className="badge badge-secondary badge-pill p-2">
+							<b> {this.props.itemsInBasket}</b>
+						</span>
 						<button
 							onClick={toggleBasket}
 							id="toggleBasket"
