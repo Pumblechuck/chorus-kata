@@ -20,13 +20,13 @@ class Counter extends Component {
 					</div>
 					<div className="col-4">
 						<button
-							className="btn btn-secondary btn-sm m-1 basketButton"
+							className="btn btn-secondary btn-sm basketButton"
 							onClick={() => this.props.onIncrement(this.props.item)}
 						>
 							+
 						</button>
 						<button
-							className="btn btn-secondary btn-sm m-1 basketButton"
+							className="btn btn-secondary btn-sm basketButton"
 							onClick={() => this.props.onDecrement(this.props.item)}
 						>
 							-
