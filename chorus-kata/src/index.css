@@ -37,6 +37,7 @@ code {
 	border: solid 2px #007bff;
 	margin: 0 15px;
 	text-align: center;
+	min-height: 480px;
 }
 
 #toggleBasket {
@@ -54,6 +55,11 @@ code {
 .basketButton {
 	width: 30px;
 	margin: 0.2rem;
+}
+
+.emptyBasket {
+	font-size: 20px;
+	color: grey;
 }
 
 .item {

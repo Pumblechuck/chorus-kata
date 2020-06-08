@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Basket from "./Basket";
 import Item from "./Item";
+import EmptyBasket from "./EmptyBasket";
 
 class Body extends Component {
 	state = {
@@ -46,13 +47,17 @@ class Body extends Component {
 		total: 0,
 	};
 
-	handleDelete = (counterID, totalDeduction) => {
-		const items = this.state.items.filter((c) => c.id !== counterID);
+	handleDelete = (item) => {
+		const items = [...this.state.items];
+		const index = items.indexOf(item);
+		items[index] = { ...item };
+		items[index].value = 0;
+		items[index].total = 0;
 		this.setState({ items });
 
 		this.setState((previousState) => {
 			return {
-				total: previousState.total - totalDeduction,
+				total: previousState.total - item.total,
 			};
 		});
 	};

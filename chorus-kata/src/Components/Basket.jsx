@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Counter from "./Counter";
+import EmptyBasket from "./EmptyBasket";
 
 class Basket extends Component {
 	render() {
@@ -14,6 +15,7 @@ class Basket extends Component {
 				<div className="card-body">
 					<div className="row row-fluid">
 						<div className="col-12">
+							<EmptyBasket total={this.props.total} />
 							{this.props.items.map((item) => (
 								<Counter
 									key={item.id}
@@ -23,7 +25,7 @@ class Basket extends Component {
 									onDecrement={onDecrement}
 								/>
 							))}
-							<div className="row row-fluid">
+							<div className="row row-fluid bottom-row">
 								<div className="col-9 line-height-2">
 									<span>
 										<b>Total: </b>£{totalCost}
