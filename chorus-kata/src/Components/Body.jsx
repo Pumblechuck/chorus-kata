@@ -145,8 +145,8 @@ class Body extends Component {
 					<div className="col-6 shop">
 						<div className="row row-fluid">
 							{this.state.items.map((item) => (
-								<div className="col-6">
-									<Item item={item} />
+								<div className="col-4">
+									<Item item={item} onIncrement={this.handleIncrement} />
 								</div>
 							))}
 						</div>
